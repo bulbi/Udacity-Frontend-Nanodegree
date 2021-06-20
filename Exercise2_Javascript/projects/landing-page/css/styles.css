@@ -67,11 +67,12 @@ section {
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
-    text-align: right;
+    text-align: center;
 }
 
 .navbar__menu li {
-    display: inline-block;
+    display: inline-blok;
+    color: #000;
 }
 
 .navbar__menu .menu__link {
@@ -93,6 +94,7 @@ section {
     background: #fff;
     position: fixed;
     top: 0;
+    padding: 24px;
     width: 100%;
     z-index: 5;
 }

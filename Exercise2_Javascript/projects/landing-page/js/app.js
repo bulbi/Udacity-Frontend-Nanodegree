@@ -12,6 +12,31 @@
  * JS Standard: ESlint
  * 
 */
+// Function to change the content of t2
+function modifyText() {
+    const t2 = document.getElementById("t2");
+    if (t2.firstChild.nodeValue == "three") {
+      t2.firstChild.nodeValue = "two";
+    } else {
+      t2.firstChild.nodeValue = "three";
+    }
+  }
+
+// Get a NodeList of all .demo elements
+const changeMenu = document.querySelectorAll('.menu-list');
+
+// Change the text of multiple elements with a loop
+changeMenu.forEach(element => {
+  element.textContent = 'All demo classes updated.';
+});
+
+// Access the first element in the NodeList
+changeMenu[0];
+
+
+
+element.scrollIntoView({block: "end"});
+
 
 /**
  * Define Global Variables

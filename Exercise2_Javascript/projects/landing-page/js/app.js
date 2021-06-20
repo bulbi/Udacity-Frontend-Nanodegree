@@ -37,6 +37,10 @@ changeMenu[0];
 
 element.scrollIntoView({block: "end"});
 
+function showDetails(section) {
+  var datasection = section.getAttribute("data-nav");
+  alert("The " + section.innerHTML + " is a " + data-nav );
+}
 
 /**
  * Define Global Variables
@@ -60,6 +64,10 @@ element.scrollIntoView({block: "end"});
 
 // build the nav
 
+class navbar__menu {
+
+
+}
 
 // Add class 'active' to section when near top of viewport
 

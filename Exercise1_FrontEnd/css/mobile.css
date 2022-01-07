@@ -1,0 +1,56 @@
+ /* Mobile MediaQuery: on screens that are 600px or less, set the background color to olive */
+ 
+ @media screen and (max-width: 600px) {
+    
+body {
+    color: white;
+    background: black;
+}
+ 
+h1, h2, h3{
+    color:#6495ED;
+}
+
+a {
+    color: #FF7F50;
+}
+
+header {
+    background: #4D4D4D;
+}
+
+.box {
+    border: 2px solid white;
+}
+
+.container {
+    width: 100%;
+    grid-template-areas: 
+    "hd"
+    "sd"
+    "main"
+    "ft";
+}
+
+header {
+    background: #4D4D4D;
+}
+
+.sidebar {
+    flex-direction:row;
+}
+
+.description {
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+}
+ .card {
+     flex-direction:row;
+     justify-content: center;
+     align-items: center;
+    }

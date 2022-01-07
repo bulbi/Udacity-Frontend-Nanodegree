@@ -1,0 +1,103 @@
+/* Main CSS */
+
+@import "general.css";
+@import "sections.css";
+@import "mobile.css";
+
+.drawingsimages {
+  max-width: 100%;
+  height: auto;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  width: 100vw;
+  grid-template-columns: repeat(auto, 1fr);
+  grid-template-rows: minmax(150px, auto);
+  grid-template-areas:
+    "hd hd hd hd hd hd hd hd"
+    "sd sd sd main main main main main"
+    "ft ft ft ft ft ft ft ft";
+}
+
+.sidebar {
+  display: flex;
+  grid-area: sd;
+  min-width: 20vw;
+  flex-direction: column;
+}
+
+.box {
+  border: 2px solid black;
+}
+
+.ArticleHeader {
+  height: 40vh;
+}
+
+.back {
+  margin-top: 24px;
+}
+
+.SoniaPicture {
+  width: 100%;
+  max-width: 354px;
+  min-width: 250px;
+  height: 300px;
+  border-radius: 15px 50px 30px;
+  background-image: url("../img/Sonia.jpg");
+  background-size: cover;
+}
+
+.title {
+  padding-left: 30px;
+}
+
+.title p,
+h1 {
+  padding-top: 24px;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1080px;
+  padding: 24px;
+}
+
+footer .contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+  margin: 24px 0px 0px 24px;
+}
+
+.ContactButton {
+  width: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 16px;
+  padding: 40px;
+}
+
+.link {
+  padding: 24px;
+  margin: 4px 0px 4px 0px;
+}
+
+.card {
+  padding: 40px;
+  border-bottom: 2px solid black;
+}

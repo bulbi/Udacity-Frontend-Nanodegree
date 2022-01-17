@@ -55,13 +55,13 @@ for (const section of sections) {
   });
 
   menu.appendChild(list);
-  console.log(section);
+  //console.log(section);
 }
 
 // Add class 'active' to section when near top of viewport
 
 function makeActive() {
-  for (const section of sections) {
+  sections.forEach((section) => {
     const box = section.getBoundingClientRect();
     // You can play with the values in the "if" condition to further make it more accurate.
     if (box.top <= 150 && box.bottom >= 150) {
@@ -71,7 +71,7 @@ function makeActive() {
       // Remove active state from other section and corresponding Nav link.
       section.classList.remove("your-active-class");
     }
-  }
+  });
 }
 // Make sections active
 document.addEventListener("scroll", function () {

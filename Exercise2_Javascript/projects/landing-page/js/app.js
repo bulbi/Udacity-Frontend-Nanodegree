@@ -18,28 +18,12 @@
  * Great to have comments before crucial code sections within the procedure.
  */
 
-/**
- * Define Global Variables
- *
- */
-
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
 
 // Build menu
 
 const menu = document.getElementById("navbar_list");
 
-// create the list menu with ID
+// Create the list menu with sections
 
 const sections = document.querySelectorAll("[data-nav]");
 for (const section of sections) {
@@ -55,7 +39,6 @@ for (const section of sections) {
   });
 
   menu.appendChild(list);
-  //console.log(section);
 }
 
 // Add class 'active' to section when near top of viewport
@@ -64,7 +47,7 @@ function makeActive() {
   sections.forEach((section) => {
     const box = section.getBoundingClientRect();
     // You can play with the values in the "if" condition to further make it more accurate.
-    if (box.top <= 150 && box.bottom >= 150) {
+    if (box.top <= 200 && box.bottom >= 200) {
       // Apply active state on the current section and the corresponding Nav link.
       section.classList.add("your-active-class");
     } else {
@@ -78,54 +61,35 @@ document.addEventListener("scroll", function () {
   makeActive();
 });
 
-// Go to top
-
-document.getElementById("top").addEventListener("click", function () {
-  document
-    .querySelector(".main__hero")
-    .scrollIntoView({ behavior: "smooth", block: "start" });
-  console.log("coucou");
-});
-
-// Create div content from Javascript
-
-// let titles = [];
-// let childElement;
-// let appendChildElement;
-// let parentElement;
-
-// // Bind to id
-// parentElement = document.getElementById("section1");
-
-// // Add titles
-// titles.push({ name: "Section 1  new" });
-
-// // Add titles elements
-// for (let title of titles) {
-//   childElement = parentElement.getElementsByTagName("h2")[0];
-//   //appendChildElement = parentElement.appendChild(childElement);
-//   childElement.innerHTML = title.name;
-// }
-
-// let titles = [];
-
-// // Add titles
-// titles.push({ name: "Section 1 new" });
-// titles.push({ name: "Section 2 new" });
-
-// let allh2 = document.getElementsByTagName("h2");
-// let index = 0;
-// for (let h2 of allh2) {
-//   if (index < titles.length) {
-//     h2.innerHTML = titles[index].name;
-//   }
-//   index++;
-// }
+// Inject the text content of the containers through JS
 
 let titles = [];
 
 titles.push({
-  name: "Section 1  new",
+  name: "Chapter 1",
+  paragraphe1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+eget bibendum consectetur. <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+eget bibendum consectetur <br/>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+eget bibendum consectetur`,
+  paragraphe2: `Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar
+gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
+Cras eu tincidunt arcu, vitae rhoncus purus`,
+});
+titles.push({
+  name: "Chapter 2",
   paragraphe1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
 fermentum metus faucibus lectus pharetra dapibus. Suspendisse
 potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
@@ -137,7 +101,7 @@ gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
 Cras eu tincidunt arcu, vitae rhoncus purus`,
 });
 titles.push({
-  name: "Section 2 new",
+  name: "Chapter 3",
   paragraphe1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
 fermentum metus faucibus lectus pharetra dapibus. Suspendisse
 potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
@@ -149,7 +113,7 @@ gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
 Cras eu tincidunt arcu, vitae rhoncus purus`,
 });
 titles.push({
-  name: "Section 3  new",
+  name: "Chapter 4",
   paragraphe1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
 fermentum metus faucibus lectus pharetra dapibus. Suspendisse
 potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
@@ -161,8 +125,13 @@ gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
 Cras eu tincidunt arcu, vitae rhoncus purus`,
 });
 
+
+
+// Create content of containers 
+
 let alllandingcontainers =
   document.getElementsByClassName("landing__container");
+
 let index = 0;
 
 for (let container of alllandingcontainers) {
@@ -171,21 +140,86 @@ for (let container of alllandingcontainers) {
     container.appendChild(h2);
     h2.innerHTML = titles[index].name;
     let p1 = document.createElement("p");
+    p1.classList.add('collapsed__content');
     container.appendChild(p1);
     p1.innerHTML = titles[index].paragraphe1;
     let p2 = document.createElement("p");
+    p2.classList.add('collapsed__content');
     container.appendChild(p2);
     p2.innerHTML = titles[index].paragraphe2;
   }
   index++;
 }
 
+// Collapse sections
+
+const coll = document.getElementsByTagName("h2");
+let i;
+
+/* for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    //this.classList.toggle("active");
+    const content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+} */
+
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    let content = this.parentNode.children;
+    for (i = 0; i < content.length; i++) {
+      if (content[i].style.maxHeight) {
+        content[i].style.maxHeight = null;
+      } else {
+        content[i].style.maxHeight = content[i].scrollHeight + "px";
+      }};
+    });
+  }
+
+
+
+// Go to top button at the end
+
+document.getElementById("top").addEventListener("click", function () {
+  document
+    .querySelector(".main__hero")
+    .scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+// Hide Menu when not scrolling 
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById('hide__nav').style.top = "0";
+  } else {
+    document.getElementById('hide__nav').style.top = "-100px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+// Timeout scrolling
+
+const timer = null;
+window.addEventListener('scroll', function() {
+    if(timer !== null) {
+        clearTimeout(timer);        
+    }
+    timer = setTimeout(function() {
+      // check to see if the function is working
+      console.log('someone is scrolling');
+    }, 150);
+}, false);
+
+
 /**
  * End Main Functions
  * Begin Events
  *
  */
-
-// Scroll to section on link click
-
-// Set sections as active

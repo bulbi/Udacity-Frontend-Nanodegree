@@ -64,7 +64,7 @@ main {
 
 section {
   position: relative;
-  min-height: 80vh;
+  min-height: 40vh;
 }
 
 /* ---- Module Rules ---- */
@@ -78,7 +78,6 @@ section {
 
 .navbar__menu li {
   display: inline;
-  color: white;
   width: 100%;
   padding: 4px;
 }
@@ -120,6 +119,15 @@ section {
   color: white;
 }
 
+/* Collapsed content style */
+
+.collapsed__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
@@ -134,15 +142,20 @@ section {
   }
 }
 
-/* Reponsive */
-@media screen and (max-width: 447px) {
+/* Reponsive menu */
+@media screen and (max-width: 400px) {
   .navbar__menu .menu__link {
+    display: block;
     padding: 0;
     margin-right: 8px;
   }
 
   .navbar__menu ul {
-    text-align: left;
+    text-align: right;
+  }
+
+  .main__hero {
+    margin-top:140px;
   }
 }
 
@@ -151,6 +164,7 @@ section:nth-of-type(even) .landing__container {
   margin-left: auto;
   text-align: right;
 }
+
 
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */

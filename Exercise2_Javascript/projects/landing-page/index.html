@@ -16,7 +16,7 @@
   <body>
     <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
-    <header class="page__header">
+    <header id="hide__nav" class="page__header">
       <nav class="navbar__menu">
         <!-- Navigation starts as empty UL that will be populated with JS -->
         <ul id="navbar_list"></ul>
@@ -24,19 +24,22 @@
     </header>
     <main>
       <header class="main__hero">
-        <h1>Landing Page</h1>
+        <h1>An amazing story</h1>
       </header>
       <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-      <section id="section1" data-nav="Section 1" class="your-active-class">
+      <section id="section1" data-nav="Chapter 1" class="your-active-class">
         <div class="landing__container"></div>
       </section>
-      <section id="section2" data-nav="Section 2">
+      <section id="section2" data-nav="Chapter 2">
         <div class="landing__container"></div>
       </section>
-      <section id="section3" data-nav="Section 3">
+      <section id="section3" data-nav="Chapter 3">
+        <div class="landing__container"></div>
+      </section>
+      <section id="section4" data-nav="Chapter 4">
         <div class="landing__container"></div>
       </section>
     </main>

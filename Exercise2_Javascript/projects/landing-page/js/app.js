@@ -187,23 +187,6 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 };
 
-// Timeout scrolling based on something I found on the Internet...
-
-const timer = null;
-window.addEventListener(
-  "scroll",
-  function () {
-    if (timer !== null) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(function () {
-      // check to see if the function is working
-      // console.log("someone is scrolling");
-    }, 150);
-  },
-  false
-);
-
 /**
  * End Main Functions
  * Begin Events

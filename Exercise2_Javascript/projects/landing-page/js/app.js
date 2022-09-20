@@ -18,7 +18,6 @@
  * Great to have comments before crucial code sections within the procedure.
  */
 
-
 // Build menu
 
 const menu = document.getElementById("navbar_list");
@@ -125,9 +124,7 @@ gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
 Cras eu tincidunt arcu, vitae rhoncus purus`,
 });
 
-
-
-// Create content of containers 
+// Create containers content and structure
 
 let alllandingcontainers =
   document.getElementsByClassName("landing__container");
@@ -140,50 +137,36 @@ for (let container of alllandingcontainers) {
     container.appendChild(h2);
     h2.innerHTML = titles[index].name;
     let p1 = document.createElement("p");
-    p1.classList.add('collapsed__content');
+    p1.classList.add("collapsed__content");
     container.appendChild(p1);
     p1.innerHTML = titles[index].paragraphe1;
     let p2 = document.createElement("p");
-    p2.classList.add('collapsed__content');
+    p2.classList.add("collapsed__content");
     container.appendChild(p2);
     p2.innerHTML = titles[index].paragraphe2;
   }
   index++;
 }
 
-// Collapse sections
+// Collapse and expand sections by clicking on each h2
 
 const coll = document.getElementsByTagName("h2");
 let i;
 
-/* for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    //this.classList.toggle("active");
-    const content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-} */
-
-
 for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
+  coll[i].addEventListener("click", function () {
     let content = this.parentNode.children;
     for (i = 0; i < content.length; i++) {
       if (content[i].style.maxHeight) {
         content[i].style.maxHeight = null;
       } else {
         content[i].style.maxHeight = content[i].scrollHeight + "px";
-      }};
-    });
-  }
+      }
+    }
+  });
+}
 
-
-
-// Go to top button at the end
+// Go to top button on the footer
 
 document.getElementById("top").addEventListener("click", function () {
   document
@@ -191,32 +174,35 @@ document.getElementById("top").addEventListener("click", function () {
     .scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
-// Hide Menu when not scrolling 
+// Hide Menu when not scrolling
 
 var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
+window.onscroll = function () {
+  var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    document.getElementById('hide__nav').style.top = "0";
+    document.getElementById("hide__nav").style.top = "0";
   } else {
-    document.getElementById('hide__nav').style.top = "-100px";
+    document.getElementById("hide__nav").style.top = "-100px";
   }
   prevScrollpos = currentScrollPos;
-}
+};
 
-// Timeout scrolling
+// Timeout scrolling based on something I found on the Internet...
 
 const timer = null;
-window.addEventListener('scroll', function() {
-    if(timer !== null) {
-        clearTimeout(timer);        
+window.addEventListener(
+  "scroll",
+  function () {
+    if (timer !== null) {
+      clearTimeout(timer);
     }
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       // check to see if the function is working
-      console.log('someone is scrolling');
+      // console.log("someone is scrolling");
     }, 150);
-}, false);
-
+  },
+  false
+);
 
 /**
  * End Main Functions

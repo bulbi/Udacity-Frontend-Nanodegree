@@ -10,3 +10,4 @@ So here it is :-)
 ## Updated version
 
 For this updated version I tried to take into consideration some new requirements like the suggestions.
+New update: collapsing sections and hidding menu while scrolling.

@@ -143,7 +143,7 @@ section {
 }
 
 /* Reponsive menu */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 465px) {
   .navbar__menu .menu__link {
     display: block;
     padding: 0;
